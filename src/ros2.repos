@@ -1,10 +1,16 @@
 # List of repositories to use within your workspace
 # See https://github.com/dirk-thomas/vcstool
-############ 
-# Example:
-############
+
+# vcs import < ros2.repos
+# colcon build --packages-up-to ros2_2020
+
 repositories:
-  examples:
+  #examples:
+  #  type: git
+  #  url: https://github.com/ros2/examples.git
+  #  version: foxy
+  ros_tutorials:
     type: git
-    url: https://github.com/ros2/examples.git
-    version: foxy
+    url: https://github.com/ros/ros_tutorials.git
+    version: foxy-devel
+
