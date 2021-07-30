@@ -272,11 +272,25 @@ code ros2_docker
 # reopen in container...
 # build the docker image
 # opening a terminal in VSCode in now opened inside the docker container
-# add your code
-# use terminal to enter ros2 commands even GUI ones
+</code></pre>
+<h1 id="example-turtlebot3">Example: turtlebot3</h1>
+<pre><code>cd /workspace/ros2_docker/src
+git clone --depth=10 --branch=foxy-devel https://github.com/ROBOTIS-GIT/turtlebot3.git
+git clone --depth=10 --branch=foxy-devel https://github.com/ROBOTIS-GIT/turtlebot3_simulations.git
+cd ..
+rosdep install -y --from-paths src --ignore-src
+colcon build
+
+# Term1
+source /workspace/ros2_docker/install.setup.bash
+export TURTLEBOT3_MODEL=burger
+ros2 launch turtlebot3_gazebo turtlebot3_house.launch.py
+
+# Term2
+ros2 launch teleop_twist_joy teleop-launch.py  joy_config:=xbox
 </code></pre>
 <h1 id="rocker">Rocker</h1>
-<p><a href="https://github.com/osrf/rocker">rocker</a> s a CLI tool to easily launch docker container with user rights, nvidia, ...</p>
+<p><a href="https://github.com/osrf/rocker">rocker</a> is a CLI tool to easily launch docker container with user rights, nvidia, ...</p>
 <pre><code>pip install rocker
 rocker --x11 --nvidia --user --home --name ros2_dev althack/ros2:foxy-gazebo-nvidia bash
 </code></pre>
